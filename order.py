@@ -24,7 +24,7 @@ def get_boxes(order_size: int) -> tuple:
         ValueError: Raises ValueError when the order_size is outside the allowable range [1..100].
 
     Returns:
-        tuple: [description]
+        tuple: returns tuple in form (small_boxes, medium_boxes, big_boxes, summary_boxes)
     """
 
     if not isinstance(order_size, int):
