@@ -6,7 +6,7 @@ from order import get_boxes, main
 from unittest.mock import patch, ANY
 
 @pytest.mark.parametrize(
-    "input_value, expected_value", [(1, (1, 0, 0, 1)), (5, (0, 1, 0, 1)), (10, (1, 0, 1, 1)), (30, (1, 0, 3, 2)), (31, (0, 1, 3, 2)), (34, (0, 0, 4, 2))]
+    "input_value, expected_value", [(1, (1, 0, 0, 0)), (5, (0, 1, 0, 0)), (9, (0, 0, 1, 0)),(10, (1, 0, 1, 1)), (30, (1, 0, 3, 2)), (31, (0, 1, 3, 2)), (34, (0, 0, 4, 2))]
 )
 def test_get_boxes_correct_order_size(input_value, expected_value):
     assert get_boxes(input_value) == expected_value

@@ -47,7 +47,9 @@ def get_boxes(order_size: int) -> tuple:
     elif 0 < boxes_to_pack:
         small_boxes += 1
 
-    summary_boxes = ceil((small_boxes + medium_boxes + big_boxes) / SUMMARY_BOX_SIZE)
+    sum_of_boxes = sum([small_boxes, medium_boxes, big_boxes])
+    if sum_of_boxes > 1:
+        summary_boxes = ceil(sum_of_boxes / SUMMARY_BOX_SIZE)
 
     return small_boxes, medium_boxes, big_boxes, summary_boxes
 
