@@ -11,7 +11,7 @@ $ pip install pytest
 # HOW TO RUN
 In order to run unit tests:
 ```
-$ python -m pytest unit_tests.py
+$ python -m pytest test_order.py
 ```
 In order to run with specified order size:
 ```
