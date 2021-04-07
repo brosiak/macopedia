@@ -38,14 +38,19 @@ def get_boxes(order_size: int) -> tuple:
     summary_boxes = 0
     boxes_to_pack = order_size
 
-    while MEDIUM_BOX_SIZE < boxes_to_pack:
-        big_boxes += 1
-        boxes_to_pack -= BIG_BOX_SIZE
+    if 10 <= boxes_to_pack <= 12:
+        medium_boxes = 2
+    elif 13 <= boxes_to_pack <= 15:
+        big_boxes = 2
+    else:
+        while MEDIUM_BOX_SIZE < boxes_to_pack:
+            big_boxes += 1
+            boxes_to_pack -= BIG_BOX_SIZE
 
-    if SMALL_BOX_SIZE < boxes_to_pack:
-        medium_boxes += 1
-    elif 0 < boxes_to_pack:
-        small_boxes += 1
+        if SMALL_BOX_SIZE < boxes_to_pack:
+            medium_boxes += 1
+        elif 0 < boxes_to_pack:
+            small_boxes += 1
 
     sum_of_boxes = sum([small_boxes, medium_boxes, big_boxes])
     if sum_of_boxes > 1:
